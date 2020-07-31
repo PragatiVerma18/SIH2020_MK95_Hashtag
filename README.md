@@ -65,12 +65,12 @@
 | 5. | Abhinav Pratap Singh | Machine Learning  | [@abhinav223](https://github.com/abhinav223) |
 | 6. |  Rohit Agnihotri| Backend Development | [@Ryuk07](https://github.com/Ryuk07) |
 
-<img src="https://avatars2.githubusercontent.com/u/42115530?s=460&u=a6f9c19a67bcc69645824c5dabf75b80f22a2dc0&v=4" width=150px height=150px /></a>
-<img src="https://avatars1.githubusercontent.com/u/42200276?s=460&u=d30b504999e77c96e9d81f057df96f540a38ce27&v=4" width=150px height=150px /></a>
-<img src="https://avatars2.githubusercontent.com/u/44435610?s=460&u=1c974e0f0ad901fbcef1d82063939e8352e08aaf&v=4" width=150px height=150px /></a>
-<img src="https://avatars2.githubusercontent.com/u/42709277?s=460&u=a7137b4d22e086023b6e4565dec15322841e939d&v=4" width=150px height=150px /></a>
-<img src="https://avatars0.githubusercontent.com/u/41802554?s=400&v=4" width=150px height=150px /></a>
-<img src="https://avatars0.githubusercontent.com/u/55892562?s=460&u=cc87bb15161ea0589aea39aee325be33199014db&v=4" width=150px height=150px /></a>
+<img src="https://avatars2.githubusercontent.com/u/42115530?s=460&u=a6f9c19a67bcc69645824c5dabf75b80f22a2dc0&v=4" width=120px height=120px /></a>
+<img src="https://avatars1.githubusercontent.com/u/42200276?s=460&u=d30b504999e77c96e9d81f057df96f540a38ce27&v=4" width=120px height=120px /></a>
+<img src="https://avatars2.githubusercontent.com/u/44435610?s=460&u=1c974e0f0ad901fbcef1d82063939e8352e08aaf&v=4" width=120px height=120px /></a>
+<img src="https://avatars2.githubusercontent.com/u/42709277?s=460&u=a7137b4d22e086023b6e4565dec15322841e939d&v=4" width=120px height=120px /></a>
+<img src="https://avatars0.githubusercontent.com/u/41802554?s=400&v=4" width=120px height=120px /></a>
+<img src="https://avatars0.githubusercontent.com/u/55892562?s=460&u=cc87bb15161ea0589aea39aee325be33199014db&v=4" width=120px height=120px /></a>
 
 
 > Mentors
