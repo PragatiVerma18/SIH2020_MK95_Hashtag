@@ -38,7 +38,8 @@
 - `python manage.py migrate` - to migrate data
 - `python manage.py createsuperuser` - to create a new superuser
 - `python manage.py runserver` - to run server on localhost
----
+
+
 #### To setup frontend and run server locally:
 - `cd awsar` - to switch to frontend folder
 - `npm install` - to install npm modules
@@ -53,20 +54,20 @@
 
 > Team Members
 
-| S.No. | Team Member Name | Role |
-| --------------- | --------------- | --------------- |
-| 1. | Pragati Verma(Team Leader) | Backend Development |
-| 2. | Rajat Verma | Frontend Developer|
-| 3. | Shristi Singh | UI/UX/Graphics Designer |
-| 4. | Paurush Tiwari | Data Science and Backend |
-| 5. | Abhinav Pratap Singh | Machine Learning  |
-| 6. |  Rohit Agnihotri| Backend Development |
+| S.No. | Team Member Name | Role | GitHub Username |
+| --------------- | --------------- | --------------- | --------------- |
+| 1. | Pragati Verma(Team Leader) | Backend Development | [@PragatiVerma18](https://github.com/PragatiVerma18) |
+| 2. | Rajat Verma | Frontend Developer| [@rajat2502](https://github.com/rajat2502)  |
+| 3. | Shristi Singh | UI/UX/Graphics Designer | [@shristisingh29](https://github.com/shristisingh29)  |
+| 4. | Paurush Tiwari | Data Science and Backend | [@MAJOR-BEAST](https://github.com/MAJOR-BEAST) |
+| 5. | Abhinav Pratap Singh | Machine Learning  | [@abhinav223](https://github.com/abhinav223) |
+| 6. |  Rohit Agnihotri| Backend Development | [@Ryuk07](https://github.com/Ryuk07) |
 
 > Mentors
 
-| S.No. | Mentor Name | About |
-| --------------- | --------------- | --------------- |
-| 1. | Vinit Shahdeo | SDE @postmanlabs  |
-| 2. | Kumar Rohit | Product Designer @devfolioco |
+| S.No. | Mentor Name | About | GitHub Username |
+| --------------- | --------------- | --------------- | --------------- |
+| 1. | Vinit Shahdeo | SDE @postmanlabs  | [@vinitshahdeo](https://github.com/vinitshahdeo)  |
+| 2. | Kumar Rohit | Product Designer @devfolioco | [@krrohitch](https://github.com/krrohitch)  |
 
 ---
