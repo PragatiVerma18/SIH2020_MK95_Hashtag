@@ -43,7 +43,7 @@
 #### To setup frontend and run server locally:
 - `cd awsar` - to switch to frontend folder
 - `npm install` - to install npm modules
-- `npm start` - to run the node server
+- `npm start` - to run the server
 
 ## Links:
 - **Frontend Hosted Link**: [http://awsar.netlify.app/](http://awsar.netlify.app/)
@@ -67,7 +67,7 @@
 
 | S.No. | Mentor Name | About | GitHub Username |
 | --------------- | --------------- | --------------- | --------------- |
-| 1. | Vinit Shahdeo | SDE @postmanlabs  | [@vinitshahdeo](https://github.com/vinitshahdeo)  |
-| 2. | Kumar Rohit | Product Designer @devfolioco | [@krrohitch](https://github.com/krrohitch)  |
+| 1. | Vinit Shahdeo | SDE [@postmanlabs](https://github.com/postmanlabs)  | [@vinitshahdeo](https://github.com/vinitshahdeo)  |
+| 2. | Kumar Rohit | Product Designer [@devfolioco](https://github.com/devfolioco) | [@krrohitch](https://github.com/krrohitch)  |
 
 ---
