@@ -17,6 +17,7 @@ import EmployeeDashboard from 'components/EmployeeDashboard';
 import OrgDashboard from 'components/OrgDashboard';
 import CreateJob from 'components/CreateJob';
 import Jobs from 'components/Jobs';
+import Courses from 'components/Courses';
 import Error404 from 'components/Error404';
 
 function App() {
@@ -88,6 +89,7 @@ function App() {
               path="/jobs"
               render={(props) => <Jobs user={user} {...props} />}
             />
+            <Route exact path="/courses" component={Courses} />
             <Route component={Error404} />
           </Switch>
           <Footer />
