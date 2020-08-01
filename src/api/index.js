@@ -1,5 +1,4 @@
- 
-import axios from 'axios';
+ import axios from 'axios';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 const algorithmiaApiKey = process.env.REACT_APP_ALGORITHMIA_KEY;
