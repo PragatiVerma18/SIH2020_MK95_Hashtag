@@ -15,6 +15,7 @@ import Profile from 'components/Profile';
 import OrgProfile from 'components/OrgProfile';
 import EmployeeDashboard from 'components/EmployeeDashboard';
 import OrgDashboard from 'components/OrgDashboard';
+import CreateJob from 'components/CreateJob';
 import Error404 from 'components/Error404';
 
 function App() {
@@ -75,6 +76,11 @@ function App() {
                   <OrgDashboard user={user} {...props} />
                 )
               }
+            />
+            <Route
+              exact
+              path="/createJob"
+              render={(props) => <CreateJob user={user} {...props} />}
             />
             <Route component={Error404} />
           </Switch>
