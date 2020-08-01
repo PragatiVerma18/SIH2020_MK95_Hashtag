@@ -71,3 +71,18 @@ export const getProfile = async (username, role) => {
     return { error: err.response.data };
   }
 };
+
+export const updateProfile = async (username, role, dataObj) => {
+  try {
+    console.log(dataObj);
+    const reqUrl =
+      role === 'Employee' ? '/employeeprofile/' : '/employerprofile/';
+    const { data } = await axios.put(
+      `${baseUrl}/profile${reqUrl}${username}/`,
+      dataObj,
+    );
+    return data;
+  } catch (err) {
+    return { error: err.response.data };
+  }
+};

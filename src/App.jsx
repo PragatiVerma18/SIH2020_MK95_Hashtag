@@ -9,6 +9,10 @@ import Footer from 'components/layout/Footer';
 import Home from 'components/Home';
 import Login from 'components/Login';
 import Signup from 'components/Signup';
+import CreateProfile from 'components/CreateProfile';
+import UpdateProfile from 'components/UpdateProfile';
+import Profile from 'components/Profile';
+import OrgProfile from 'components/OrgProfile';
 import Error404 from 'components/Error404';
 
 function App() {
@@ -38,6 +42,38 @@ function App() {
               exact
               path="/signup"
               render={(props) => <Signup setUser={setUser} {...props} />}
+            />
+            <Route
+              exact
+              path="/createProfile"
+              render={(props) => <CreateProfile user={user} {...props} />}
+            />
+            <Route
+              exact
+              path="/updateProfile"
+              render={(props) => <UpdateProfile user={user} {...props} />}
+            />
+            <Route
+              exact
+              path="/profile/:username"
+              render={(props) => <Profile user={user} {...props} />}
+            />
+            <Route
+              exact
+              path="/org/:username"
+              render={(props) => <OrgProfile user={user} {...props} />}
+            />
+            <Route
+              exact
+              path="/dashboard"
+              render={
+                (props) => null
+                // user.role === 'Employee' ? (
+                //   <EmployeeDashboard user={user} {...props} />
+                // ) : (
+                //   <OrgDashboard user={user} {...props} />
+                // )
+              }
             />
             <Route component={Error404} />
           </Switch>
