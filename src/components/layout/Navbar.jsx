@@ -6,7 +6,7 @@ import Icon from 'components/Icon';
 import './styles/Navbar.css';
 
 const Navbar = ({ user, setUser }) => {
-  const print = () => window.print();
+  // const print = () => window.print();
 
   const signOut = () => {
     setUser({});
