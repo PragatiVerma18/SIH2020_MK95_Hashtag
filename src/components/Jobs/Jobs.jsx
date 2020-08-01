@@ -14,7 +14,7 @@ function Jobs({ user }) {
   const [location, setLocation] = useState('select an option');
   const [womenJobs, setWomenJobs] = useState(false);
   const [disabledJobs, setDisabledJobs] = useState(false);
-  const [verifiedJobs, setVerifiedJobs] = useState(false); // to be implemented
+  const [verifiedJobs, setVerifiedJobs] = useState(false);
   const [org, setOrg] = useState('select an option');
   const [lastDate, setLastDate] = useState('select an option');
   const [qual, setQual] = useState('select an option');
@@ -117,6 +117,9 @@ function Jobs({ user }) {
             <div className="mt-3">
               <p className="font-bold text-sm">Category:</p>
               <select value={category} name="category" onChange={handleChange}>
+                <option disabled selected>
+                  select an option
+                </option>
                 {getDomains().map((d) => (
                   <option key={d}>{d}</option>
                 ))}
