@@ -13,6 +13,8 @@ import CreateProfile from 'components/CreateProfile';
 import UpdateProfile from 'components/UpdateProfile';
 import Profile from 'components/Profile';
 import OrgProfile from 'components/OrgProfile';
+import EmployeeDashboard from 'components/EmployeeDashboard';
+import OrgDashboard from 'components/OrgDashboard';
 import Error404 from 'components/Error404';
 
 function App() {
@@ -66,13 +68,12 @@ function App() {
             <Route
               exact
               path="/dashboard"
-              render={
-                (props) => null
-                // user.role === 'Employee' ? (
-                //   <EmployeeDashboard user={user} {...props} />
-                // ) : (
-                //   <OrgDashboard user={user} {...props} />
-                // )
+              render={(props) =>
+                user.role === 'Employee' ? (
+                  <EmployeeDashboard user={user} {...props} />
+                ) : (
+                  <OrgDashboard user={user} {...props} />
+                )
               }
             />
             <Route component={Error404} />
