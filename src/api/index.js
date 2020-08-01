@@ -1,4 +1,4 @@
- import axios from 'axios';
+import axios from 'axios';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 const algorithmiaApiKey = process.env.REACT_APP_ALGORITHMIA_KEY;
@@ -44,5 +44,30 @@ export const signUp = async (dataObj, role) => {
     return data;
   } catch (err) {
     return { error: 'Something went wrong!' };
+  }
+};
+
+export const createProfile = async (dataObj, role) => {
+  try {
+    const reqUrl =
+      role === 'Employee'
+        ? '/profile/create-employee-profile/'
+        : '/profile/create-employer-profile/';
+    const { data } = await axios.post(`${baseUrl}${reqUrl}`, dataObj);
+    return data;
+  } catch (err) {
+    console.log(err.response);
+    return { error: 'Something went wrong!' };
+  }
+};
+
+export const getProfile = async (username, role) => {
+  try {
+    const reqUrl =
+      role === 'Employee' ? '/employeeprofile/' : '/employerprofile/';
+    const { data } = await axios.get(`${baseUrl}/profile${reqUrl}${username}`);
+    return data;
+  } catch (err) {
+    return { error: err.response.data };
   }
 };
