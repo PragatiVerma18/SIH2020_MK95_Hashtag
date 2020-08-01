@@ -60,7 +60,7 @@
 | --------------- | --------------- | --------------- | --------------- |
 | 1. | Pragati Verma(Team Leader) | Backend Development | [@PragatiVerma18](https://github.com/PragatiVerma18) |
 | 2. | Rajat Verma | Frontend Developer| [@rajat2502](https://github.com/rajat2502)  |
-| 3. | Shristi Singh | UI/UX/Graphics Designer | [@shristisingh29](https://github.com/shristisingh29)  |
+| 3. | Shristi Singh | UI Designer/Frontend Developer | [@shristisingh29](https://github.com/shristisingh29)  |
 | 4. | Paurush Tiwari | Data Science and Backend | [@MAJOR-BEAST](https://github.com/MAJOR-BEAST) |
 | 5. | Abhinav Pratap Singh | Machine Learning  | [@abhinav223](https://github.com/abhinav223) |
 | 6. |  Rohit Agnihotri| Backend Development | [@Ryuk07](https://github.com/Ryuk07) |
