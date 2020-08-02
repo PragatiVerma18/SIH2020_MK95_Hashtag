@@ -1,3 +1,4 @@
+.vscode
 ### Django ###
 env
 *.log
