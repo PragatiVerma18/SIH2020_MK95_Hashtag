@@ -6,7 +6,7 @@ import Icon from 'components/Icon';
 import './styles/Navbar.css';
 
 const Navbar = ({ user, setUser }) => {
-  // const print = () => window.print();
+  const print = () => window.print();
 
   const signOut = () => {
     setUser({});
@@ -27,12 +27,12 @@ const Navbar = ({ user, setUser }) => {
             <span className="text-base"> - NATIONAL WEB PORTAL FOR JOBS</span>
           </p>
         </div>
-        {/* <div className="flex m-auto sm:m-0">
+        <div className="flex m-auto sm:m-0">
           <button className="mx-2" onClick={print} title="Print this page">
             <Icon name="print" />
           </button>
           <div id="google_translate_element"></div>
-        </div> */}
+        </div>
       </div>
 
       <header className="bg-white flex items-end justify-between">
@@ -70,13 +70,13 @@ const Navbar = ({ user, setUser }) => {
                 </Link>
               ) : null}
             </li>
-            {/* <li>
+            <li>
               <Link
                 to="/news"
                 className="sm:mr-3 font-bold text-blue-600 hover:text-blue-700">
                 News
               </Link>
-            </li> */}
+            </li>
             <li>
               {user.username ? (
                 <button className="profile-button">
@@ -96,9 +96,9 @@ const Navbar = ({ user, setUser }) => {
                         Profile
                       </Link>
                     </li>
-                    {/* <li className="text-sm hover:text-blue-600">
+                    <li className="text-sm hover:text-blue-600">
                       <Link to="/updateProfile">Edit Profile</Link>
-                    </li> */}
+                    </li>
                     <li
                       className="text-sm hover:text-blue-600"
                       onClick={signOut}>

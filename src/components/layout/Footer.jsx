@@ -44,7 +44,7 @@ const Footer = () => {
           <Link to="/">Find Organization</Link>
           <Link to="/jobs">Find a Job</Link>
           <Link to="/createJob">Post Job</Link>
-          {/* <Link to="/news">News</Link> */}
+          <Link to="/news">News</Link>
         </div>
       </div>
       <div className="copyright-bar bg-blue-600">
@@ -52,7 +52,7 @@ const Footer = () => {
         <div>
           <Link to="/">Contact us</Link>
           <Link to="/">Provide feedback</Link>
-          {/* <Link to="/jobs">Jobs</Link> */}
+          <Link to="/jobs">Jobs</Link>
         </div>
       </div>
     </div>
