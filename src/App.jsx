@@ -19,6 +19,7 @@ import JobApplicants from 'components/JobApplicants';
 import CreateJob from 'components/CreateJob';
 import Jobs from 'components/Jobs';
 import Job from 'components/Job';
+import UpdateJob from 'components/UpdateJob';
 import RecommendedJobs from 'components/RecommendedJobs';
 import News from 'components/News';
 import Courses from 'components/Courses';
@@ -92,6 +93,11 @@ function App() {
               exact
               path="/createJob"
               render={(props) => <CreateJob user={user} {...props} />}
+            />
+            <Route
+              exact
+              path="/updateJob/:id"
+              render={(props) => <UpdateJob user={user} {...props} />}
             />
             <Route
               exact
