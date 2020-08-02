@@ -24,3 +24,15 @@ class ApplicantPerJobView(generics.ListAPIView):
         context = super().get_context_data(**kwargs)
         context['job'] = Job.objects.get(id=self.kwargs['job_id'])
         return context
+
+
+class JobCreateView(generics.CreateAPIView):
+    model = Job
+    queryset = Job.objects.all()
+    serializer_class = JobSerializer
+
+
+class JobRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+    model = Job
+    queryset = Job.objects.all()
+    serializer_class = JobSerializer
