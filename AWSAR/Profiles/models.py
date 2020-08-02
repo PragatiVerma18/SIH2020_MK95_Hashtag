@@ -41,3 +41,33 @@ class WorkExperience(models.Model):
 
     class Meta:
         ordering = ['start_date']
+
+
+class Education(models.Model):
+    employee = models.ForeignKey(
+        EmployeeProfile, on_delete=models.CASCADE, related_name='education')
+    institution = models.CharField(max_length=100)
+    degree = models.CharField(max_length=200)
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    class Meta:
+        ordering = ['start_date']
+
+    def __str__(self):
+        return '%s: %s' % (self.employee, self.degree)
+
+
+class EmployerProfile(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, to_field='username')
+    company_name = models.CharField(max_length=200)
+    location = models.CharField(max_length=100)
+    website = models.URLField(null=True, blank=True)
+    industry = models.CharField(max_length=50)
+    company_size = models.IntegerField()
+    company_type = models.CharField(max_length=50)
+    overview = models.TextField(max_length=500)
+
+    def __str__(self):
+        return '%s' % (self.company_name)
