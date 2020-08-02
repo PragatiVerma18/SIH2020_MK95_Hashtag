@@ -40,8 +40,8 @@ class Applicant(models.Model):
                             related_name='applicants')
     applied_at = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=15, default='Applied')
-    # created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    # updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.employee.first_name
