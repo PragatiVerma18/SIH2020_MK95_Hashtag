@@ -47,6 +47,10 @@
 - `npm install` - to install npm modules
 - `npm start` - to run the server
 
+## Links:
+- **Frontend Hosted Link**: [http://awsar.netlify.app/](http://awsar.netlify.app/)
+- **Backed Hosted Link**: [http://awsar2020.herokuapp.com/ ](http://awsar2020.herokuapp.com/)
+- **API Documentation**: [https://documenter.getpostman.com/view/10608582/T1DjjzeX?version=latest](https://documenter.getpostman.com/view/10608582/T1DjjzeX?version=latest)
 
 ## Team:
 
