@@ -18665,10 +18665,5 @@ export const courses = {
         ncCode: 'NPTEL',
       },
     },
-    {
-      node: {
-        id: 'Q291cnNlTGlzdDovbmQxX25vYzIwX21hNDA=',
-        title: 'Scientific Computing using Matlab',
-        url: '/nd1_noc20_ma40/preview',
-        explorerSummary: '',
-        explorerInstructorName: 'Prof. Mani Mehra, P
+  ],
+};
