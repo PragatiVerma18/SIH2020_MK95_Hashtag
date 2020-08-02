@@ -31,3 +31,26 @@ class EmployeeRegisterAPIView(generics.CreateAPIView):
 
     def get_serializer_context(self, *args, **kwargs):
         return {'request': self.request}
+
+
+class EmployeeList(generics.ListAPIView):
+    model = User
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return User.objects.filter(role='Employee')
+
+
+class EmployerList(generics.ListAPIView):
+    model = User
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return User.objects.filter(role='Employer')
+
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

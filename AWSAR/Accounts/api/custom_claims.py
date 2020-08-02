@@ -18,7 +18,4 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
-    © 2020 GitHub, Inc.
-    Terms
-    Privacy
-    Securi
+    
