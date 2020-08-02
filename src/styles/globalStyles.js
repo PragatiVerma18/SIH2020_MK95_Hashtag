@@ -6,6 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     src: url(./assets/fonts/ProximaNovaRegular.ttf);
   }
   body {
+    font-size: 16px;
     top: 0 !important;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
