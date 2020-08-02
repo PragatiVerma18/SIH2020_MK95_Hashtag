@@ -17,6 +17,7 @@ import EmployeeDashboard from 'components/EmployeeDashboard';
 import OrgDashboard from 'components/OrgDashboard';
 import Jobs from 'components/Jobs';
 import Job from 'components/Job';
+import RecommendedJobs from 'components/RecommendedJobs';
 import News from 'components/News';
 import Courses from 'components/Courses';
 import Error404 from 'components/Error404';
@@ -89,6 +90,11 @@ function App() {
               exact
               path="/job/:id"
               render={(props) => <Job user={user} {...props} />}
+            />
+            <Route
+              exact
+              path="/recommended"
+              render={(props) => <RecommendedJobs user={user} {...props} />}
             />
             <Route exact path="/news" component={News} />
             <Route exact path="/courses" component={Courses} />
