@@ -47,6 +47,11 @@ const Navbar = ({ user, setUser }) => {
           <Link to="/jobs" className="mx-3 text-blue-700 hover:text-blue-800">
             Jobs
           </Link>
+          <Link
+            to="/recommended"
+            className="mx-3 text-blue-700 hover:text-blue-800">
+            Recommended Jobs
+          </Link>
           <Link to="/dashboard" className="text-blue-700 hover:text-blue-800">
             Dashboard
           </Link>
