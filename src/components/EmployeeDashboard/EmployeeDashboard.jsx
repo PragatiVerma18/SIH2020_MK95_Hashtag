@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
 import { getEmployeeJobs, updateApplicationStatus } from 'api';
@@ -13,6 +13,7 @@ function EmployeeDashboard({ user }) {
   const [pending, setPending] = useState(false);
   const [modal, showModal, hideModal] = useModal();
   const [jobID, setJobID] = useState(null);
+  const [selectedJob, setSelectedJob] = useState(null);
 
   const handleOpenModal = (id) => {
     showModal();
@@ -26,6 +27,16 @@ function EmployeeDashboard({ user }) {
     setPending(false);
     hideModal();
     fetchEmployeeJobs();
+  };
+
+  const showCertiModal = (job) => {
+    setSelectedJob(job);
+    showModal();
+  };
+
+  const hideCertiModal = () => {
+    setSelectedJob(null);
+    hideModal();
   };
 
   const fetchEmployeeJobs = useCallback(async () => {
@@ -48,7 +59,7 @@ function EmployeeDashboard({ user }) {
 
   return (
     <StyledContainer>
-      {modal && (
+      {modal && !selectedJob && (
         <Modal
           modal={modal}
           closeModal={hideModal}
@@ -69,6 +80,36 @@ function EmployeeDashboard({ user }) {
           </div>
         </Modal>
       )}
+      {modal && selectedJob && (
+        <Modal modal={modal} closeModal={hideCertiModal}>
+          <div className="p-8 m-3 border-4 border-blue-600">
+            <img
+              className="w-40 mb-3 m-auto"
+              src={require('assets/awsar.png')}
+              alt="Awsar logo"
+            />
+            <h1 className="uppercase tracking-wide text-3xl font-bold text-blue-700 text-center mb-3">
+              Certificate of Selection
+            </h1>
+            <p className="text-gray-700 text-xl">
+              This is to certify that{' '}
+              <span className="font-bold capitalize">{user.username}</span> has
+              been selected for the post of{' '}
+              <span className="font-bold capitalize">{selectedJob.title}</span>{' '}
+              in
+              <span className="font-bold uppercase">
+                {' '}
+                {selectedJob.company_name}.
+              </span>
+            </p>
+            <p className="text-gray-700 text-xl mt-2">
+              All the very best for your new job. May you enjoy it at the
+              fullest and climb up the success stairs eventually.
+            </p>
+          </div>
+        </Modal>
+      )}
+
       {!jobs.length ? (
         <h1>
           You have not applied for any Jobs yet. Visit{' '}
@@ -112,6 +153,14 @@ function EmployeeDashboard({ user }) {
                           title="Withdraw Application"
                           onClick={() => handleOpenModal(j.id)}>
                           (Withdraw Application)
+                        </span>
+                      )}
+                      {j.status === 'Selected' && (
+                        <span
+                          className="block mt-1 change-status"
+                          title="Download Certificate"
+                          onClick={() => showCertiModal(j.job)}>
+                          (See Certificate)
                         </span>
                       )}
                     </td>

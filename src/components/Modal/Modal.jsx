@@ -13,7 +13,7 @@ const Modal = ({ title, closeModal, children, modal }) => {
   return ReactDOM.createPortal(
     <StyledModal className={modal ? 'modal-open' : ''} onClick={hideModal}>
       <div className="content">
-        <p className="heading">{title}</p>
+        {title && <p className="heading">{title}</p>}        
         <span className="close-icon" onClick={closeModal} title="close">
           &times;
         </span>

@@ -24,7 +24,7 @@ export const StyledModal = styled.main.attrs({
   }
 
   .content {
-    ${tw`w-1/3 relative p-8 rounded bg-white`}
+    ${tw`w-3/4 sm:w-1/3 relative p-8 rounded bg-white`}
 
     animation: ${modalAnimation} 0.25s;
   }
