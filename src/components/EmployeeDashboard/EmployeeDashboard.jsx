@@ -172,33 +172,20 @@ function EmployeeDashboard({ user }) {
                       j.status === 'Rejected' ||
                       j.status === 'Ineligible' ? (
                         <span>
-                          {moment
-                            .duration(
-                              new Date(j.updated_at) - new Date(j.applied_at),
-                            )
-                            .days() && (
-                            <span>
-                              {moment.duration(
+                          <span>
+                            {`${moment
+                              .duration(
+                                new Date(j.updated_at) - new Date(j.created_at),
+                              )
+                              .days()} days`}
+                          </span>
+                          <span>
+                            {` ${moment
+                              .duration(
                                 new Date(j.updated_at) - new Date(j.applied_at),
-                              )}{' '}
-                              days
-                            </span>
-                          )}
-                          {moment
-                            .duration(
-                              new Date(j.updated_at) - new Date(j.applied_at),
-                            )
-                            .hours() && (
-                            <span>
-                              {moment
-                                .duration(
-                                  new Date(j.updated_at) -
-                                    new Date(j.applied_at),
-                                )
-                                .hours()}{' '}
-                              hours
-                            </span>
-                          )}
+                              )
+                              .hours()} hours`}
+                          </span>
                         </span>
                       ) : (
                         '-'

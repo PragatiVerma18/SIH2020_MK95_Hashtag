@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
         <div className="footer-links">
           <Link to="/">Find Organization</Link>
-          <Link to="/jobs">Find a Job</Link>
+          <Link to="/analytics">Job Analytics</Link>
           <Link to="/createJob">Post Job</Link>
           <Link to="/news">News</Link>
         </div>

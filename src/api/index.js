@@ -181,8 +181,25 @@ export const getJobApplicants = async (id) => {
 
 export const updateApplicationStatus = async (id, dataObj) => {
   try {
-    console.log(id, dataObj);
     await axios.patch(`${baseUrl}/jobs/status/${id}`, dataObj);
+  } catch (err) {
+    console.log(err.response);
+  }
+};
+
+export const getNumberOfJobs = async () => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/stats/applicants`);
+    return data;
+  } catch (err) {
+    console.log(err.response);
+  }
+};
+
+export const getAvgVacancyTime = async () => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/stats/duration`);
+    return data;
   } catch (err) {
     console.log(err.response);
   }

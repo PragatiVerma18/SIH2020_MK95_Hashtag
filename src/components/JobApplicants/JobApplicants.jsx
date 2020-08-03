@@ -342,36 +342,22 @@ function JobApplicants({ user }) {
                         ap.status === 'Rejected' ||
                         ap.status === 'Ineligible' ? (
                           <span>
-                            {moment
-                              .duration(
-                                new Date(ap.updated_at) -
-                                  new Date(ap.job.created_at),
-                              )
-                              .days() && (
-                              <span>
-                                {moment.duration(
+                            <span>
+                              {`${moment
+                                .duration(
                                   new Date(ap.updated_at) -
                                     new Date(ap.job.created_at),
-                                )}{' '}
-                                days
-                              </span>
-                            )}
-                            {moment
-                              .duration(
-                                new Date(ap.updated_at) -
-                                  new Date(ap.job.created_at),
-                              )
-                              .hours() && (
-                              <span>
-                                {moment
-                                  .duration(
-                                    new Date(ap.updated_at) -
-                                      new Date(ap.job.created_at),
-                                  )
-                                  .hours()}{' '}
-                                hours
-                              </span>
-                            )}
+                                )
+                                .days()} days`}
+                            </span>
+                            <span>
+                              {` ${moment
+                                .duration(
+                                  new Date(ap.updated_at) -
+                                    new Date(ap.job.created_at),
+                                )
+                                .hours()} hours`}
+                            </span>
                           </span>
                         ) : (
                           '-'
