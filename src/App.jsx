@@ -24,6 +24,7 @@ import RecommendedJobs from 'components/RecommendedJobs';
 import News from 'components/News';
 import Courses from 'components/Courses';
 import Analytics from 'components/Analytics';
+// import JobFairs from 'components/JobFairs';
 import Error404 from 'components/Error404';
 
 function App() {
@@ -118,6 +119,7 @@ function App() {
             <Route exact path="/news" component={News} />
             <Route exact path="/courses" component={Courses} />
             <Route path="/analytics" component={Analytics} />
+            {/* <Route path="/fairs" component={JobFairs} /> */}
             <Route component={Error404} />
           </Switch>
           <Footer />
