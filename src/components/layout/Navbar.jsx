@@ -94,9 +94,6 @@ const Navbar = ({ user, setUser }) => {
               </Link>
             </li>
             <li>
-              <Link to="/fairs">Job Fairs</Link>
-            </li>
-            <li>
               {user.username ? (
                 <button className="profile-button">
                   <span className="uppercase font-bold text-blue-600">
