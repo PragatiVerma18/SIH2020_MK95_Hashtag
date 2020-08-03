@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import * as moment from 'moment';
 
 import { getEmployeeJobs, updateApplicationStatus } from 'api';
 import { useModal } from 'utils/customHooks/useModal';
@@ -126,6 +127,7 @@ function EmployeeDashboard({ user }) {
                 <th>Job Type</th>
                 <th>Applied On</th>
                 <th>Status</th>
+                <th>Time Taken</th>
               </tr>
             </thead>
             <tbody>
@@ -163,6 +165,43 @@ function EmployeeDashboard({ user }) {
                           onClick={() => showCertiModal(j.job)}>
                           (See Certificate)
                         </span>
+                      )}
+                    </td>
+                    <td>
+                      {j.status === 'Selected' ||
+                      j.status === 'Rejected' ||
+                      j.status === 'Ineligible' ? (
+                        <span>
+                          {moment
+                            .duration(
+                              new Date(j.updated_at) - new Date(j.applied_at),
+                            )
+                            .days() && (
+                            <span>
+                              {moment.duration(
+                                new Date(j.updated_at) - new Date(j.applied_at),
+                              )}{' '}
+                              days
+                            </span>
+                          )}
+                          {moment
+                            .duration(
+                              new Date(j.updated_at) - new Date(j.applied_at),
+                            )
+                            .hours() && (
+                            <span>
+                              {moment
+                                .duration(
+                                  new Date(j.updated_at) -
+                                    new Date(j.applied_at),
+                                )
+                                .hours()}{' '}
+                              hours
+                            </span>
+                          )}
+                        </span>
+                      ) : (
+                        '-'
                       )}
                     </td>
                   </tr>

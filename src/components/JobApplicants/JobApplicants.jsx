@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Redirect, Link, useParams } from 'react-router-dom';
+import * as moment from 'moment';
 
 import { getJobApplicants, updateApplicationStatus, sendEmail } from 'api';
 
@@ -243,12 +244,13 @@ function JobApplicants({ user }) {
             <table className="w-full mt-4">
               <thead>
                 <tr>
-                  <th className="w-1/6">Name</th>
-                  <th className="w-1/6">Email</th>
-                  <th className="w-1/6">Gender</th>
-                  <th className="w-1/6">Age</th>
-                  <th className="w-1/6">Phone Number</th>
-                  <th className="w-1/6">Status</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Gender</th>
+                  <th>Age</th>
+                  <th>Phone Number</th>
+                  <th>Status</th>
+                  <th>Time taken</th>
                 </tr>
               </thead>
               <tbody>
@@ -292,6 +294,46 @@ function JobApplicants({ user }) {
                             onClick={() => openModal(ap)}>
                             (Change Status)
                           </span>
+                        )}
+                      </td>
+                      <td>
+                        {ap.status === 'Selected' ||
+                        ap.status === 'Rejected' ||
+                        ap.status === 'Ineligible' ? (
+                          <span>
+                            {moment
+                              .duration(
+                                new Date(ap.updated_at) -
+                                  new Date(ap.job.created_at),
+                              )
+                              .days() && (
+                              <span>
+                                {moment.duration(
+                                  new Date(ap.updated_at) -
+                                    new Date(ap.job.created_at),
+                                )}{' '}
+                                days
+                              </span>
+                            )}
+                            {moment
+                              .duration(
+                                new Date(ap.updated_at) -
+                                  new Date(ap.job.created_at),
+                              )
+                              .hours() && (
+                              <span>
+                                {moment
+                                  .duration(
+                                    new Date(ap.updated_at) -
+                                      new Date(ap.job.created_at),
+                                  )
+                                  .hours()}{' '}
+                                hours
+                              </span>
+                            )}
+                          </span>
+                        ) : (
+                          '-'
                         )}
                       </td>
                     </tr>
