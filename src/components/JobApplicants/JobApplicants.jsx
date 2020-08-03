@@ -340,7 +340,8 @@ function JobApplicants({ user }) {
                       <td>
                         {ap.status === 'Selected' ||
                         ap.status === 'Rejected' ||
-                        ap.status === 'Ineligible' ? (
+                        ap.status === 'Ineligible' ||
+                        ap.status === 'Withdrawn' ? (
                           <span>
                             <span>
                               {`${moment

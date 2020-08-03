@@ -170,7 +170,8 @@ function EmployeeDashboard({ user }) {
                     <td>
                       {j.status === 'Selected' ||
                       j.status === 'Rejected' ||
-                      j.status === 'Ineligible' ? (
+                      j.status === 'Ineligible' ||
+                      j.status === 'Withdrawn' ? (
                         <span>
                           <span>
                             {`${moment

@@ -44,17 +44,21 @@ const Navbar = ({ user, setUser }) => {
               alt="Awsar Logo"
             />
           </Link>
-          <Link to="/jobs" className="mx-3 text-blue-700 hover:text-blue-800">
+          <Link to="/jobs" className="ml-3 text-blue-700 hover:text-blue-800">
             Jobs
           </Link>
           <Link
-            to="/recommended"
-            className="mx-3 text-blue-700 hover:text-blue-800">
-            Recommended Jobs
-          </Link>
-          <Link to="/dashboard" className="text-blue-700 hover:text-blue-800">
+            to="/dashboard"
+            className="ml-3 text-blue-700 hover:text-blue-800">
             Dashboard
           </Link>
+          {user.role === 'Employee' && (
+            <Link
+              to="/recommended"
+              className="ml-3 text-blue-700 hover:text-blue-800">
+              Recommended Jobs
+            </Link>
+          )}
           <Link
             to="/courses"
             className="ml-3 text-blue-700 hover:text-blue-800">
@@ -66,6 +70,13 @@ const Navbar = ({ user, setUser }) => {
         <label htmlFor="nav" />
         <nav className="text-lg">
           <ul>
+            <li>
+              <Link
+                to="/analytics"
+                className="sm:mr-3 font-bold text-blue-600 hover:text-blue-700">
+                Analytics
+              </Link>
+            </li>
             <li>
               {user.username && user.role === 'Employer' ? (
                 <Link
