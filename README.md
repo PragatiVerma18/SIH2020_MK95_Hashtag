@@ -1,4 +1,4 @@
-> **Click to View Demo [Here](https://awsar.netlify.app/)**
+> **Click to view prototype [Here](https://awsar.netlify.app/)**
 
 # Team-Hashtag
 # Smart India Hackathon 2020
