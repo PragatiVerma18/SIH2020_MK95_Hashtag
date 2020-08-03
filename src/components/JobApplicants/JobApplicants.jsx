@@ -37,6 +37,8 @@ function JobApplicants({ user }) {
   const [candidate, setCandidate] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [isOnline, setIsOnline] = useState(true);
+  const [location, setLocation] = useState('');
 
   // google calendar api
   const createEvent = async (e) => {
@@ -58,6 +60,7 @@ function JobApplicants({ user }) {
         .then(() => {
           const event = {
             summary: 'Interview Schedule',
+            location: location,
             description: `Interview for the post of ${applicants[0].job.company_name} at ${applicants[0].job.title}`,
             start: {
               dateTime: new Date(startDate).toISOString(),
@@ -210,6 +213,44 @@ function JobApplicants({ user }) {
                           onChange={(e) => setEndDate(e.target.value)}
                         />
                       </div>
+                      <label className="block mt-3">
+                        <span className="block">Interview type</span>
+                        <label className="inline-flex cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={isOnline}
+                            style={{
+                              display: 'flex',
+                              width: 'auto',
+                              marginRight: 5,
+                            }}
+                            onChange={() => setIsOnline((state) => !state)}
+                          />
+                          <span>Online</span>
+                        </label>
+                        <label className="ml-4 inline-flex cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={!isOnline}
+                            style={{
+                              display: 'flex',
+                              width: 'auto',
+                              marginRight: 5,
+                            }}
+                            onChange={() => setIsOnline((state) => !state)}
+                          />
+                          <span>Offline</span>
+                        </label>
+                      </label>
+                      {!isOnline && (
+                        <>
+                          <label className="mt-3">Interview Location</label>
+                          <input
+                            type="text"
+                            onChange={(e) => setLocation(e.target.value)}
+                          />
+                        </>
+                      )}
                     </div>
                   </>
                 )}

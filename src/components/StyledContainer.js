@@ -161,7 +161,7 @@ export const StyledContainer = styled.div.attrs({
           ${tw`text-gray-600 bg-gray-200`}
         }
         &.Interview {
-          ${tw`text-teal-600 bg-teal-200`}
+          ${tw`text-indigo-600 bg-indigo-200`}
         }
         &.change-status {
           ${tw`text-xs cursor-pointer hover:underline text-blue-600`}
