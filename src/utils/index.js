@@ -100,6 +100,15 @@ export const getEmailTemplate = (status, candidateName, companyName, title) => {
   We wish you all the best in your job search and future professional endeavors.
   Regards`,
     },
+    {
+      name: 'Selected for Interview',
+      template: `Hi ${candidateName},
+      Thanks for applying to ${companyName} organization.
+      We reviewed your qualifications for the ${title} position and we wish to extend an invitation for an online interview.
+      You will be meeting with a recruiter from our company. The interview should last approximately one hour and we’ll be using the time to further discuss your background, details about your experience, and information about our company.
+      The Interview details has been shared with you by a Google Meet invite.      
+      We are look forward to hearing from you!`,
+    },
   ];
 
   return templates.filter((t) => t.name === status);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
 import { getEmployeeJobs, updateApplicationStatus } from 'api';
@@ -147,7 +147,8 @@ function EmployeeDashboard({ user }) {
                     <td>
                       <span className={`status ${j.status}`}>{j.status}</span>
                       {(j.status === 'Applied' ||
-                        j.status === 'Shortlisted') && (
+                        j.status === 'Shortlisted' ||
+                        j.status === 'Interview') && (
                         <span
                           className="block mt-1 change-status"
                           title="Withdraw Application"

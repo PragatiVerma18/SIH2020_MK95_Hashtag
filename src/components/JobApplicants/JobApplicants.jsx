@@ -9,7 +9,21 @@ import { getEmailTemplate } from 'utils';
 import Modal from 'components/Modal';
 import { StyledContainer } from 'components/StyledContainer';
 
-const status = ['Shortlisted', 'Selected', 'Rejected', 'Ineligible'];
+const status = [
+  'Shortlisted',
+  'Selected',
+  'Rejected',
+  'Ineligible',
+  'Selected for Interview',
+];
+
+const gapi = window.gapi;
+const CLIENT_ID = process.env.REACT_APP_CLIENTID;
+const API_KEY = process.env.REACT_APP_API_KEY;
+var DISCOVERY_DOCS = [
+  'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
+];
+var SCOPES = 'https://www.googleapis.com/auth/calendar';
 
 function JobApplicants({ user }) {
   const { id } = useParams();
@@ -20,6 +34,62 @@ function JobApplicants({ user }) {
   const [jobStatus, setJobStatus] = useState('Select a Status');
   const [content, setContent] = useState('');
   const [candidate, setCandidate] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+
+  // google calendar api
+  const createEvent = async (e) => {
+    e.preventDefault();
+    setPending(true);
+    gapi.load('client:auth2', () => {
+      gapi.client.init({
+        apiKey: API_KEY,
+        clientId: CLIENT_ID,
+        discoveryDocs: DISCOVERY_DOCS,
+        scope: SCOPES,
+      });
+
+      gapi.client.load('calendar', 'v3', () => console.log('loaded calendar'));
+
+      gapi.auth2
+        .getAuthInstance()
+        .signIn()
+        .then(() => {
+          const event = {
+            summary: 'Interview Schedule',
+            description: `Interview for the post of ${applicants[0].job.company_name} at ${applicants[0].job.title}`,
+            start: {
+              dateTime: new Date(startDate).toISOString(),
+              timeZone: 'Asia/Kolkata',
+            },
+            end: {
+              dateTime: new Date(endDate).toISOString(),
+              timeZone: 'Asia/Kolkata',
+            },
+            recurrence: ['RRULE:FREQ=DAILY;COUNT=2'],
+            attendees: [{ email: candidate.employee.email }],
+            reminders: {
+              useDefault: false,
+              overrides: [
+                { method: 'email', minutes: 24 * 60 },
+                { method: 'popup', minutes: 10 },
+              ],
+            },
+          };
+
+          const request = gapi.client.calendar.events.insert({
+            calendarId: 'primary',
+            sendUpdates: 'all',
+            resource: event,
+          });
+
+          request.execute((event) => {
+            window.open(event.htmlLink);
+            handleStatusUpdate();
+          });
+        });
+    });
+  };
 
   const fetchJobApplicants = useCallback(async () => {
     const applicants = await getJobApplicants(id);
@@ -49,9 +119,13 @@ function JobApplicants({ user }) {
     hideModal();
   };
 
-  const handleStatusUpdate = async (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     setPending(true);
+    await handleStatusUpdate();
+  };
+
+  const handleStatusUpdate = async () => {
     const emailPromise = sendEmail(
       candidate.employee.email,
       user.username,
@@ -63,7 +137,7 @@ function JobApplicants({ user }) {
       )[0].template,
     );
     const statusPromise = await updateApplicationStatus(candidate.id, {
-      status: jobStatus,
+      status: jobStatus !== 'Selected for Interview' ? jobStatus : 'Interview',
     });
     await Promise.all([emailPromise, statusPromise]);
     setPending(false);
@@ -99,7 +173,13 @@ function JobApplicants({ user }) {
       <StyledContainer>
         {modal && (
           <Modal title="Change Status" closeModal={hideModal}>
-            <form className="mt-1" onSubmit={handleStatusUpdate}>
+            <form
+              className="mt-1"
+              onSubmit={
+                jobStatus !== 'Selected for Interview'
+                  ? handleFormSubmit
+                  : createEvent
+              }>
               <div>
                 <label>Status:</label>
                 <select name="jobStatus" onChange={handleChange}>
@@ -112,6 +192,26 @@ function JobApplicants({ user }) {
                     </option>
                   ))}
                 </select>
+                {jobStatus === 'Selected for Interview' && (
+                  <>
+                    <div>
+                      <div>
+                        <label>Start Time</label>
+                        <input
+                          type="datetime-local"
+                          onChange={(e) => setStartDate(e.target.value)}
+                        />
+                      </div>
+                      <div>
+                        <label>End Time</label>
+                        <input
+                          type="datetime-local"
+                          onChange={(e) => setEndDate(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
               <div className="mt-2">
                 <label>Email content:</label>
@@ -121,9 +221,15 @@ function JobApplicants({ user }) {
                   onChange={(e) => setContent(e.target.value)}
                   placeholder="This content will be send to the job seeker via Email and SMS."></textarea>
               </div>
-              <button type="submit" disabled={pending}>
-                {pending ? 'Notifying Candiate...' : 'Notify Candiate'}
-              </button>
+              {jobStatus !== 'Selected for Interview' ? (
+                <button type="submit" disabled={pending}>
+                  {pending ? 'Notifying Candidate...' : 'Notify Candidate'}
+                </button>
+              ) : (
+                <button type="submit" disabled={pending}>
+                  {pending ? 'Scheduling Interview...' : 'Schedule Interview'}
+                </button>
+              )}
             </form>
           </Modal>
         )}
@@ -178,7 +284,8 @@ function JobApplicants({ user }) {
                           {ap.status}
                         </span>
                         {(ap.status === 'Applied' ||
-                          ap.status === 'Shortlisted') && (
+                          ap.status === 'Shortlisted' ||
+                          ap.status === 'Interview') && (
                           <span
                             className="block mt-1 change-status"
                             title="Change Status"
